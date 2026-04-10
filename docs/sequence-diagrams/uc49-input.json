@@ -1,0 +1,72 @@
+{
+  "uc_id": "UC-49",
+  "title": "UC-49: View Customer List",
+  "participants": [
+    {
+      "id": "admin",
+      "name": "Admin"
+    },
+    {
+      "id": "ui",
+      "name": "CustomerListPage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "admin",
+      "to": "ui",
+      "label": "navigate to customer management",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "getCustomers(filters)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "queryCustomers(filters)",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "customer list",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "paginated customer list",
+      "msg_type": "return",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "admin",
+      "label": "display customer table",
+      "msg_type": "return",
+      "step": "4"
+    }
+  ]
+}

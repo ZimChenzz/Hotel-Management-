@@ -1,0 +1,300 @@
+/* Hotel Management System - Auth Styles */
+/* Image Specs: Hero 800x1000px (4:5), Logo 200x60px */
+
+:root {
+    --hotel-gold: #c9a227;
+    --hotel-gold-light: #e8d48a;
+    --hotel-gold-dark: #a68419;
+    --hotel-navy: #1a1a2e;
+    --hotel-cream: #f8f5f0;
+    --hotel-dark: #16213e;
+    --hotel-gray: #6c757d;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Auth Container - Split Layout */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Hero Section - Left Side */
+.auth-hero {
+    flex: 1;
+    background: linear-gradient(135deg, var(--hotel-navy) 0%, var(--hotel-dark) 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.auth-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.auth-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26,26,46,0.8) 0%, rgba(22,33,62,0.6) 100%);
+}
+
+.auth-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2rem;
+    color: #fff;
+}
+
+.auth-hero-content h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--hotel-gold-light);
+}
+
+.auth-hero-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Form Section - Right Side */
+.auth-form-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--hotel-cream);
+    padding: 2rem;
+}
+
+.auth-form-container {
+    width: 100%;
+    max-width: 420px;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Logo */
+.auth-logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-logo img {
+    height: 60px;
+    width: auto;
+}
+
+.auth-logo-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--hotel-navy);
+}
+
+.auth-logo-text span {
+    color: var(--hotel-gold);
+}
+
+/* Form Card */
+.auth-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    padding: 2.5rem;
+}
+
+.auth-card h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--hotel-navy);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.auth-card .auth-subtitle {
+    color: var(--hotel-gray);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* Form Inputs */
+.auth-form .form-label {
+    font-weight: 500;
+    color: var(--hotel-navy);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.auth-form .form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form .form-control:focus {
+    border-color: var(--hotel-gold);
+    box-shadow: 0 0 0 3px rgba(201,162,39,0.15);
+}
+
+.auth-form .form-control::placeholder {
+    color: #adb5bd;
+}
+
+.auth-form .form-text {
+    font-size: 0.8rem;
+    color: var(--hotel-gray);
+}
+
+/* Primary Button */
+.btn-hotel-primary {
+    background: linear-gradient(135deg, var(--hotel-gold) 0%, var(--hotel-gold-dark) 100%);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.875rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-hotel-primary:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(201,162,39,0.35);
+    color: #fff;
+}
+
+.btn-hotel-primary:active {
+    transform: scale(0.98);
+}
+
+/* Secondary/Outline Button */
+.btn-hotel-outline {
+    background: transparent;
+    border: 2px solid var(--hotel-navy);
+    color: var(--hotel-navy);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-hotel-outline:hover {
+    background: var(--hotel-navy);
+    color: #fff;
+}
+
+/* Links */
+.auth-link {
+    color: var(--hotel-gold-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.auth-link:hover {
+    color: var(--hotel-gold);
+    text-decoration: underline;
+}
+
+/* Divider */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    color: var(--hotel-gray);
+    font-size: 0.85rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e9ecef;
+}
+
+.auth-divider span {
+    padding: 0 1rem;
+}
+
+/* Alert Messages */
+.auth-form .alert {
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+}
+
+.auth-form .alert-danger {
+    background: #fff5f5;
+    color: #c53030;
+}
+
+.auth-form .alert-success {
+    background: #f0fff4;
+    color: #276749;
+}
+
+/* Footer Text */
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--hotel-gray);
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .auth-container {
+        flex-direction: column;
+    }
+
+    .auth-hero {
+        min-height: 200px;
+        flex: none;
+    }
+
+    .auth-hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .auth-form-section {
+        flex: 1;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .auth-form-section {
+        padding: 1rem;
+    }
+
+    .auth-card {
+        padding: 1.5rem;
+    }
+
+    .auth-card h2 {
+        font-size: 1.5rem;
+    }
+}

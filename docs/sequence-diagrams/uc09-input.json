@@ -1,0 +1,72 @@
+{
+  "uc_id": "UC-09",
+  "title": "UC-09: View Room Detail",
+  "participants": [
+    {
+      "id": "guest",
+      "name": "Guest"
+    },
+    {
+      "id": "ui",
+      "name": "RoomDetailPage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "guest",
+      "to": "ui",
+      "label": "select a room",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "getRoomDetail(roomId)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "findRoom(roomId)",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "room data",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "room detail (photos, amenities, reviews, price)",
+      "msg_type": "return",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "guest",
+      "label": "display room detail page",
+      "msg_type": "return",
+      "step": "4"
+    }
+  ]
+}

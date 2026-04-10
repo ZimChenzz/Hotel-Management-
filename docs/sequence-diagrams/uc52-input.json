@@ -1,0 +1,72 @@
+{
+  "uc_id": "UC-52",
+  "title": "UC-52: Edit Promotion",
+  "participants": [
+    {
+      "id": "admin",
+      "name": "Admin"
+    },
+    {
+      "id": "ui",
+      "name": "EditPromotionForm"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "admin",
+      "to": "ui",
+      "label": "modify promotion details",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "updatePromotion(promoId, data)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "updatePromotion(promoId, data)",
+      "msg_type": "sync",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "updated",
+      "msg_type": "return",
+      "step": "3.1"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "promotion updated",
+      "msg_type": "return",
+      "step": "4"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "admin",
+      "label": "show success",
+      "msg_type": "return",
+      "step": "5"
+    }
+  ]
+}

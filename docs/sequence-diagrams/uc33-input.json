@@ -1,0 +1,88 @@
+{
+  "uc_id": "UC-33",
+  "title": "UC-33: Update Cleaning Status",
+  "participants": [
+    {
+      "id": "staff",
+      "name": "Staff"
+    },
+    {
+      "id": "ui",
+      "name": "CleaningStatusForm"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "staff",
+      "to": "ui",
+      "label": "select task & update status",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "updateCleaningStatus(taskId, status)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "updateTask(taskId, status)",
+      "msg_type": "sync",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "updated",
+      "msg_type": "return",
+      "step": "3.1"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "updateRoomStatus(roomId, Clean)",
+      "msg_type": "sync",
+      "step": "4"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "updated",
+      "msg_type": "return",
+      "step": "4.1"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "status updated",
+      "msg_type": "return",
+      "step": "5"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "staff",
+      "label": "show confirmation",
+      "msg_type": "return",
+      "step": "6"
+    }
+  ]
+}

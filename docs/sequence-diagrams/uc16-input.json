@@ -1,0 +1,117 @@
+{
+  "uc_id": "UC-16",
+  "title": "UC-16: Make Online Payment",
+  "participants": [
+    {
+      "id": "cust",
+      "name": "Customer"
+    },
+    {
+      "id": "ui",
+      "name": "PaymentPage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "pay",
+      "name": "PaymentGateway"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "cust",
+      "to": "ui",
+      "label": "select payment method",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "initiatePayment(bookingId, method)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "pay",
+      "label": "processPayment(amount, method)",
+      "msg_type": "sync",
+      "step": "3"
+    },
+    {
+      "type": "alt",
+      "condition": "payment successful",
+      "messages": [
+        {
+          "from": "pay",
+          "to": "sys",
+          "label": "payment confirmation",
+          "msg_type": "return",
+          "step": "4"
+        },
+        {
+          "from": "sys",
+          "to": "db",
+          "label": "savePayment(status=Paid)",
+          "msg_type": "sync",
+          "step": "5"
+        },
+        {
+          "from": "db",
+          "to": "sys",
+          "label": "saved",
+          "msg_type": "return",
+          "step": "5.1"
+        },
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "payment successful + receipt",
+          "msg_type": "return",
+          "step": "6"
+        },
+        {
+          "from": "ui",
+          "to": "cust",
+          "label": "show receipt & confirmation",
+          "msg_type": "return",
+          "step": "7"
+        }
+      ],
+      "else_condition": "payment failed",
+      "else_messages": [
+        {
+          "from": "pay",
+          "to": "sys",
+          "label": "payment failed",
+          "msg_type": "return",
+          "step": "EF-1"
+        },
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "error: payment failed",
+          "msg_type": "return",
+          "step": "EF-2"
+        },
+        {
+          "from": "ui",
+          "to": "cust",
+          "label": "show error, suggest retry",
+          "msg_type": "return",
+          "step": "EF-3"
+        }
+      ]
+    }
+  ]
+}

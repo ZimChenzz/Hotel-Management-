@@ -1,0 +1,72 @@
+{
+  "uc_id": "UC-60",
+  "title": "UC-60: Update Hotel Information",
+  "participants": [
+    {
+      "id": "admin",
+      "name": "Admin"
+    },
+    {
+      "id": "ui",
+      "name": "HotelInfoForm"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "admin",
+      "to": "ui",
+      "label": "edit hotel info (name, address, phone, policies)",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "updateHotelInfo(data)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "saveHotelInfo(data)",
+      "msg_type": "sync",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "saved",
+      "msg_type": "return",
+      "step": "3.1"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "info updated",
+      "msg_type": "return",
+      "step": "4"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "admin",
+      "label": "show success",
+      "msg_type": "return",
+      "step": "5"
+    }
+  ]
+}

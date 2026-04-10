@@ -1,0 +1,72 @@
+{
+  "uc_id": "UC-08",
+  "title": "UC-08: Browse Available Rooms",
+  "participants": [
+    {
+      "id": "guest",
+      "name": "Guest"
+    },
+    {
+      "id": "ui",
+      "name": "RoomBrowsePage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "guest",
+      "to": "ui",
+      "label": "navigate to room listing",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "getAvailableRooms(filters)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "queryRooms(dates, type, price)",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "room list",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "available rooms with details",
+      "msg_type": "return",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "guest",
+      "label": "display room cards (photo, price, amenities)",
+      "msg_type": "return",
+      "step": "4"
+    }
+  ]
+}

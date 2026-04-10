@@ -1,0 +1,100 @@
+{
+  "uc_id": "UC-10",
+  "title": "UC-10: Create Booking",
+  "participants": [
+    {
+      "id": "cust",
+      "name": "Customer"
+    },
+    {
+      "id": "ui",
+      "name": "BookingForm"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "cust",
+      "to": "ui",
+      "label": "select room, dates, guests",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "checkAvailability(roomId, dates)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "queryAvailability()",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "availability result",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "alt",
+      "condition": "room available",
+      "messages": [
+        {
+          "from": "sys",
+          "to": "sys",
+          "label": "calculatePrice(dates, promotions)",
+          "msg_type": "sync",
+          "step": "3"
+        },
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "booking summary & price",
+          "msg_type": "return",
+          "step": "4"
+        },
+        {
+          "from": "ui",
+          "to": "cust",
+          "label": "display booking summary",
+          "msg_type": "return",
+          "step": "4.1"
+        }
+      ],
+      "else_condition": "room not available",
+      "else_messages": [
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "error: room unavailable",
+          "msg_type": "return",
+          "step": "EF-1"
+        },
+        {
+          "from": "ui",
+          "to": "cust",
+          "label": "show unavailable message",
+          "msg_type": "return",
+          "step": "EF-2"
+        }
+      ]
+    }
+  ]
+}

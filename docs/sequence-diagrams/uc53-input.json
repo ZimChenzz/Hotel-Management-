@@ -1,0 +1,72 @@
+{
+  "uc_id": "UC-53",
+  "title": "UC-53: View Promotion List",
+  "participants": [
+    {
+      "id": "admin",
+      "name": "Admin"
+    },
+    {
+      "id": "ui",
+      "name": "PromotionListPage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "admin",
+      "to": "ui",
+      "label": "navigate to promotions",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "getPromotions(filters)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "queryPromotions(filters)",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "promotion list",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "promotions data",
+      "msg_type": "return",
+      "step": "3"
+    },
+    {
+      "from": "ui",
+      "to": "admin",
+      "label": "display promotions table",
+      "msg_type": "return",
+      "step": "4",
+      "type": "message"
+    }
+  ]
+}

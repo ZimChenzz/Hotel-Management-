@@ -1,0 +1,114 @@
+{
+  "uc_id": "UC-13",
+  "title": "UC-13: Extend Booking",
+  "participants": [
+    {
+      "id": "cust",
+      "name": "Customer"
+    },
+    {
+      "id": "ui",
+      "name": "ExtendBookingForm"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "cust",
+      "to": "ui",
+      "label": "request extend stay",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "checkExtendAvailability(bookingId, newDates)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "checkRoomAvailability(roomId, newDates)",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "availability result",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "alt",
+      "condition": "extension available",
+      "messages": [
+        {
+          "from": "sys",
+          "to": "sys",
+          "label": "calculateAdditionalCost()",
+          "msg_type": "sync",
+          "step": "3"
+        },
+        {
+          "from": "sys",
+          "to": "db",
+          "label": "updateBooking(newCheckout, newTotal)",
+          "msg_type": "sync",
+          "step": "4"
+        },
+        {
+          "from": "db",
+          "to": "sys",
+          "label": "updated",
+          "msg_type": "return",
+          "step": "4.1"
+        },
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "extension confirmed",
+          "msg_type": "return",
+          "step": "5"
+        },
+        {
+          "from": "ui",
+          "to": "cust",
+          "label": "show updated booking",
+          "msg_type": "return",
+          "step": "5.1"
+        }
+      ],
+      "else_condition": "extension not available",
+      "else_messages": [
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "error: room not available for extension",
+          "msg_type": "return",
+          "step": "EF-1"
+        },
+        {
+          "from": "ui",
+          "to": "cust",
+          "label": "show unavailable message",
+          "msg_type": "return",
+          "step": "EF-2"
+        }
+      ]
+    }
+  ]
+}

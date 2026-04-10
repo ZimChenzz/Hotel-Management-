@@ -1,0 +1,88 @@
+{
+  "uc_id": "UC-65",
+  "title": "UC-65: View Home Page",
+  "participants": [
+    {
+      "id": "guest",
+      "name": "Guest"
+    },
+    {
+      "id": "ui",
+      "name": "HomePage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "guest",
+      "to": "ui",
+      "label": "access website",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "getHomePageData()",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "queryFeaturedRooms()",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "featured rooms",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "queryActivePromotions()",
+      "msg_type": "sync",
+      "step": "2.3"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "promotions",
+      "msg_type": "return",
+      "step": "2.4"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "home page data",
+      "msg_type": "return",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "guest",
+      "label": "display hero, rooms, promotions, info",
+      "msg_type": "return",
+      "step": "4"
+    }
+  ]
+}

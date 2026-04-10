@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile>
+  <diagram name="UC - Admin Management">
+    <mxGraphModel dx="1353" dy="2066" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1353" pageHeight="2066">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="UC - Admin Management" style="text;html=1;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="0" y="5" width="1353" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="3" value="&lt;b&gt;Account&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- accountId: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- email: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- password: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- fullName: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- phone: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- address: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- roleId: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- isActive: boolean&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- createdAt: LocalDateTime&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="140" height="178" as="geometry"/>
+        </mxCell>
+        <mxCell id="4" value="&lt;b&gt;AdminAuthFilter&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ httpRequest: HttpServletRequest&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ httpResponse: HttpServletResponse&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ return: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ account: Account&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ return: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ loginUrl: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ returnUrl: String&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ doFilter(ServletRequest, ServletResponse, FilterChain): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ redirectToLogin(httpRequest, httpResponse): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- redirectToLogin(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="240" y="80" width="309" height="178" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="&lt;b&gt;AdminCustomerController&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- adminCustomerService: AdminCustomerService&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ adminCustomerService: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ path: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ path: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ customers: List&amp;lt;Customer&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ success: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ id: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ customer: Customer&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ return: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ email: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ password: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ fullName: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ phone: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ address: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ result: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ return: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ id: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ fullName: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ phone: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ address: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ success: boolean&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ init(): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doGet(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ switch(path): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doPost(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ switch(path): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleList(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleCreateForm(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleEditForm(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(customer): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleCreate(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(result): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(result): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleEdit(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(success): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ handleEditForm(request, response): &lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="609" y="80" width="323" height="542" as="geometry"/>
+        </mxCell>
+        <mxCell id="6" value="&lt;b&gt;AdminCustomerService&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- customerRepository: CustomerRepository&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- accountRepository: AccountRepository&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ account: Account&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ accountId: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ accountId: return&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ account: Account&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ createCustomer(String, String, String, String, String): int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(accountId): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ updateCustomer(int, String, String, String): boolean&lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="992" y="80" width="274" height="164" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="&lt;b&gt;AdminDashboardController&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- adminReportService: AdminReportService&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- serviceRequestService: ServiceRequestService&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ adminReportService: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ serviceRequestService: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ stats: Map&amp;lt;String, Object&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ monthlyLabels: String[]&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ monthlyCounts: int[]&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ labelsJson: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ countsJson: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ serviceRequestStats: Map&amp;lt;String, Integer&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ init(): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doGet(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="40" y="702" width="269" height="206" as="geometry"/>
+        </mxCell>
+        <mxCell id="8" value="&lt;b&gt;AdminHotelInfoController&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- hotelInfoService: HotelInfoService&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ hotelInfoService: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ hotelInfo: HotelInfo&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ info: HotelInfo&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ amenitiesArr: String[]&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ existing: HotelInfo&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ success: boolean&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ init(): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doGet(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doPost(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(amenitiesArr): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(success): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ doGet(request, response): &lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="369" y="702" width="273" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="9" value="&lt;b&gt;AdminReportController&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- adminReportService: AdminReportService&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ adminReportService: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ path: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ stats: Map&amp;lt;String, Object&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ startDateStr: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ endDateStr: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ startDate: LocalDateTime&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ endDate: LocalDateTime&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ startDate: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ endDate: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ now: LocalDate&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ startDate: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ endDate: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ report: Map&amp;lt;String, Object&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ init(): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doGet(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ switch(path): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleUtilizationReport(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleRevenueReport(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(startDateStr): &lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="702" y="702" width="342" height="318" as="geometry"/>
+        </mxCell>
+        <mxCell id="10" value="&lt;b&gt;AdminReportService&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- roomRepository: RoomRepository&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- bookingRepository: BookingRepository&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- customerRepository: CustomerRepository&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ stats: Map&amp;lt;String, Object&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ stats: return&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ counts: int[]&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ now: LocalDate&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ monthDate: LocalDate&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ start: LocalDateTime&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ end: LocalDateTime&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ counts: return&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ labels: String[]&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ now: LocalDate&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ monthDate: LocalDate&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ labels: return&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ stats: Map&amp;lt;String, Object&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ totalRooms: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ occupied: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ available: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ cleaning: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ maintenance: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ utilizationRate: double&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ stats: return&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ report: Map&amp;lt;String, Object&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ totalRevenue: BigDecimal&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ bookingCount: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ report: return&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ for(int): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ for(int): &lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="1104" y="702" width="208" height="444" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="&lt;b&gt;AdminSettingsController&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doGet(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doPost(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1226" width="273" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="12" value="&lt;b&gt;AdminUsersController&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- accountRepository: AccountRepository&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ accountRepository: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ path: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ path: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ users: List&amp;lt;Account&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ search: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ roleFilter: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ statusFilter: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ q: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ users: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ roleId: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ users: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ users: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ users: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ idStr: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ fullName: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ email: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ phone: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ roleIdStr: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ password: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ return: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ account: Account&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ id: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ account: Account&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ id: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ active: boolean&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ init(): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doGet(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ handleList(request, response): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doPost(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ switch(path): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleList(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleSave(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(account): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleToggleStatus(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleResetPassword(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="373" y="1226" width="339" height="542" as="geometry"/>
+        </mxCell>
+        <mxCell id="13" value="&lt;b&gt;Customer&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- accountId: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- loyaltyPoints: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- membershipLevel: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- account: Account&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="772" y="1226" width="140" height="108" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="&lt;b&gt;HotelInfo&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- infoId: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- name: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- slogan: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- shortDescription: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- fullDescription: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- address: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- city: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- phone: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- email: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- website: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- checkInTime: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- checkOutTime: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- cancellationPolicy: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- policies: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- logoUrl: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- facebook: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- instagram: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- twitter: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- amenities: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- updatedAt: LocalDateTime&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="972" y="1226" width="140" height="332" as="geometry"/>
+        </mxCell>
+        <mxCell id="15" value="&lt;b&gt;HotelInfoService&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- hotelInfoRepository: HotelInfoRepository&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ info: HotelInfo&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ info: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ info: return&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ existing: HotelInfo&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ existing: &lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(info): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ updateHotelInfo(HotelInfo): boolean&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(existing): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ RuntimeException(&amp;quot;Failed, e): throw new&lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1848" width="206" height="178" as="geometry"/>
+        </mxCell>
+        <mxCell id="16" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="4" target="3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="17" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="16">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="16">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="19" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="5" target="6" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="20" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="19">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="19">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" value="" style="html=1;rounded=0;startArrow=diamondThin;startFill=1;endArrow=none;startSize=12;strokeColor=#333333;" edge="1" source="5" target="13" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="23" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="22">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24" value="*" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="22">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="25" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="6" target="3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="26" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="25">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="27" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="25">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="28" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="7" target="10" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="29" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="28">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="30" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="28">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="31" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="8" target="15" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="32" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="31">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="33" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="31">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="34" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="8" target="14" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="35" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="34">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="34">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="37" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="9" target="10" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="38" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="37">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="39" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="37">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="40" value="" style="html=1;rounded=0;startArrow=diamondThin;startFill=1;endArrow=none;startSize=12;strokeColor=#333333;" edge="1" source="12" target="3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="41" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="40">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="42" value="*" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="40">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="43" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="13" target="3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="44" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="43">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="45" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="43">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="46" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="15" target="14" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="47" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="46">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="48" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="46">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

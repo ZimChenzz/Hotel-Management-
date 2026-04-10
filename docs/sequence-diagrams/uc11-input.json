@@ -1,0 +1,72 @@
+{
+  "uc_id": "UC-11",
+  "title": "UC-11: Confirm Booking",
+  "participants": [
+    {
+      "id": "cust",
+      "name": "Customer"
+    },
+    {
+      "id": "ui",
+      "name": "BookingConfirmPage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "cust",
+      "to": "ui",
+      "label": "review & confirm booking",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "confirmBooking(bookingData)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "saveBooking(status=Confirmed)",
+      "msg_type": "sync",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "booking saved",
+      "msg_type": "return",
+      "step": "3.1"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "booking confirmed + ID",
+      "msg_type": "return",
+      "step": "4"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "cust",
+      "label": "show confirmation & booking ID",
+      "msg_type": "return",
+      "step": "5"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "uc_id": "UC-31",
+  "title": "UC-31: View Room History (Staff)",
+  "participants": [
+    {
+      "id": "staff",
+      "name": "Staff"
+    },
+    {
+      "id": "ui",
+      "name": "RoomHistoryPage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "staff",
+      "to": "ui",
+      "label": "select room & view history",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "getRoomHistory(roomId)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "queryBookingHistory(roomId)",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "history records",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "room booking history",
+      "msg_type": "return",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "staff",
+      "label": "display history timeline",
+      "msg_type": "return",
+      "step": "4"
+    }
+  ]
+}

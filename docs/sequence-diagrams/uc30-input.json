@@ -1,0 +1,72 @@
+{
+  "uc_id": "UC-30",
+  "title": "UC-30: View Room Detail (Staff)",
+  "participants": [
+    {
+      "id": "staff",
+      "name": "Staff"
+    },
+    {
+      "id": "ui",
+      "name": "RoomDetailPage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "staff",
+      "to": "ui",
+      "label": "select room from map/list",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "getRoomDetail(roomId)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "findRoom(roomId) + currentBooking",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "room + booking data",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "room detail + occupancy info",
+      "msg_type": "return",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "staff",
+      "label": "display room detail",
+      "msg_type": "return",
+      "step": "4"
+    }
+  ]
+}

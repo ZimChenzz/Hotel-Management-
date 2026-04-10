@@ -1,0 +1,72 @@
+{
+  "uc_id": "UC-20",
+  "title": "UC-20: View My Reviews",
+  "participants": [
+    {
+      "id": "cust",
+      "name": "Customer"
+    },
+    {
+      "id": "ui",
+      "name": "ReviewsPage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "cust",
+      "to": "ui",
+      "label": "navigate to my reviews",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "getMyReviews(customerId)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "queryFeedback(customerId)",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "feedback list",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "reviews list",
+      "msg_type": "return",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "cust",
+      "label": "display reviews with ratings",
+      "msg_type": "return",
+      "step": "4"
+    }
+  ]
+}

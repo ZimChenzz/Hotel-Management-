@@ -1,0 +1,80 @@
+{
+  "uc_id": "UC-58",
+  "title": "UC-58: View Revenue Report",
+  "participants": [
+    {
+      "id": "admin",
+      "name": "Admin"
+    },
+    {
+      "id": "ui",
+      "name": "RevenueReportPage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "admin",
+      "to": "ui",
+      "label": "select date range & filters",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "getRevenueReport(dateRange, filters)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "queryRevenue(dateRange)",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "revenue data",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "sys",
+      "label": "calculateStats(totals, trends)",
+      "msg_type": "sync",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "revenue report with charts data",
+      "msg_type": "return",
+      "step": "4"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "admin",
+      "label": "display charts & summary",
+      "msg_type": "return",
+      "step": "5"
+    }
+  ]
+}

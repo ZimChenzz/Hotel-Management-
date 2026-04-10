@@ -1,0 +1,100 @@
+{
+  "uc_id": "UC-37",
+  "title": "UC-37: Staff Login",
+  "participants": [
+    {
+      "id": "staff",
+      "name": "Staff"
+    },
+    {
+      "id": "ui",
+      "name": "StaffLoginForm"
+    },
+    {
+      "id": "auth",
+      "name": "AuthService"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "staff",
+      "to": "ui",
+      "label": "enter staff credentials",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "auth",
+      "label": "authenticateStaff(email, password)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "auth",
+      "to": "db",
+      "label": "findStaff(email)",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "auth",
+      "label": "staff record",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "alt",
+      "condition": "credentials valid & active",
+      "messages": [
+        {
+          "from": "auth",
+          "to": "auth",
+          "label": "createSession(role=Staff)",
+          "msg_type": "sync",
+          "step": "3"
+        },
+        {
+          "from": "auth",
+          "to": "ui",
+          "label": "auth token",
+          "msg_type": "return",
+          "step": "4"
+        },
+        {
+          "from": "ui",
+          "to": "staff",
+          "label": "redirect to staff dashboard",
+          "msg_type": "return",
+          "step": "5"
+        }
+      ],
+      "else_condition": "invalid or deactivated",
+      "else_messages": [
+        {
+          "from": "auth",
+          "to": "ui",
+          "label": "error: invalid credentials",
+          "msg_type": "return",
+          "step": "EF-1"
+        },
+        {
+          "from": "ui",
+          "to": "staff",
+          "label": "show error",
+          "msg_type": "return",
+          "step": "EF-2"
+        }
+      ]
+    }
+  ]
+}

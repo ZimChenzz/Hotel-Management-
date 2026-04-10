@@ -1,0 +1,100 @@
+{
+  "uc_id": "UC-02",
+  "title": "UC-02: Login",
+  "participants": [
+    {
+      "id": "user",
+      "name": "User"
+    },
+    {
+      "id": "ui",
+      "name": "LoginForm"
+    },
+    {
+      "id": "auth",
+      "name": "AuthService"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "user",
+      "to": "ui",
+      "label": "enter email & password",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "auth",
+      "label": "authenticate(email, password)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "auth",
+      "to": "db",
+      "label": "findUser(email)",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "auth",
+      "label": "user record",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "alt",
+      "condition": "credentials valid & account active",
+      "messages": [
+        {
+          "from": "auth",
+          "to": "auth",
+          "label": "createSession, determine role",
+          "msg_type": "sync",
+          "step": "3"
+        },
+        {
+          "from": "auth",
+          "to": "ui",
+          "label": "auth token + role",
+          "msg_type": "return",
+          "step": "4"
+        },
+        {
+          "from": "ui",
+          "to": "user",
+          "label": "redirect to role-based area",
+          "msg_type": "return",
+          "step": "4.1"
+        }
+      ],
+      "else_condition": "invalid credentials or deactivated",
+      "else_messages": [
+        {
+          "from": "auth",
+          "to": "ui",
+          "label": "error: invalid credentials / deactivated",
+          "msg_type": "return",
+          "step": "EF-1"
+        },
+        {
+          "from": "ui",
+          "to": "user",
+          "label": "show error message",
+          "msg_type": "return",
+          "step": "EF-2"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "uc_id": "UC-25",
+  "title": "UC-25: Assign Room to Booking",
+  "participants": [
+    {
+      "id": "staff",
+      "name": "Staff"
+    },
+    {
+      "id": "ui",
+      "name": "RoomAssignmentPage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "staff",
+      "to": "ui",
+      "label": "select booking & assign room",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "assignRoom(bookingId, roomId)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "checkRoomAvailable(roomId)",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "room status",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "alt",
+      "condition": "room available & clean",
+      "messages": [
+        {
+          "from": "sys",
+          "to": "db",
+          "label": "updateBooking(roomId, status=CheckedIn)",
+          "msg_type": "sync",
+          "step": "3"
+        },
+        {
+          "from": "db",
+          "to": "sys",
+          "label": "updated",
+          "msg_type": "return",
+          "step": "3.1"
+        },
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "room assigned successfully",
+          "msg_type": "return",
+          "step": "4"
+        },
+        {
+          "from": "ui",
+          "to": "staff",
+          "label": "show confirmation",
+          "msg_type": "return",
+          "step": "4.1"
+        }
+      ],
+      "else_condition": "room not available",
+      "else_messages": [
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "error: room unavailable",
+          "msg_type": "return",
+          "step": "EF-1"
+        },
+        {
+          "from": "ui",
+          "to": "staff",
+          "label": "show error",
+          "msg_type": "return",
+          "step": "EF-2"
+        }
+      ]
+    }
+  ]
+}

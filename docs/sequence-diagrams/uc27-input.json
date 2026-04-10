@@ -1,0 +1,88 @@
+{
+  "uc_id": "UC-27",
+  "title": "UC-27: Create Walk-in Booking",
+  "participants": [
+    {
+      "id": "staff",
+      "name": "Staff"
+    },
+    {
+      "id": "ui",
+      "name": "WalkInBookingForm"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "staff",
+      "to": "ui",
+      "label": "enter guest info & room selection",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "createWalkInBooking(guestInfo, roomId)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "checkRoomAvailable(roomId)",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "available",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "createBooking(status=CheckedIn)",
+      "msg_type": "sync",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "booking created",
+      "msg_type": "return",
+      "step": "3.1"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "walk-in booking confirmed",
+      "msg_type": "return",
+      "step": "4"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "staff",
+      "label": "show booking confirmation",
+      "msg_type": "return",
+      "step": "5"
+    }
+  ]
+}

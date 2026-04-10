@@ -1,0 +1,92 @@
+{
+  "uc_id": "UC-34",
+  "title": "UC-34: Process Staff Payment",
+  "participants": [
+    {
+      "id": "staff",
+      "name": "Staff"
+    },
+    {
+      "id": "ui",
+      "name": "PaymentProcessPage"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "pay",
+      "name": "PaymentGateway"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "staff",
+      "to": "ui",
+      "label": "select booking & payment method",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "processPayment(bookingId, method, amount)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "pay",
+      "label": "chargePayment(amount, method)",
+      "msg_type": "sync",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "pay",
+      "to": "sys",
+      "label": "payment result",
+      "msg_type": "return",
+      "step": "3.1"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "savePaymentRecord(bookingId, status)",
+      "msg_type": "sync",
+      "step": "4"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "saved",
+      "msg_type": "return",
+      "step": "4.1"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "payment processed + receipt",
+      "msg_type": "return",
+      "step": "5"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "staff",
+      "label": "show receipt",
+      "msg_type": "return",
+      "step": "6"
+    }
+  ]
+}

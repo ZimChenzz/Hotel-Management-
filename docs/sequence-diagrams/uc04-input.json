@@ -1,0 +1,89 @@
+{
+  "uc_id": "UC-04",
+  "title": "UC-04: Verify OTP",
+  "participants": [
+    {
+      "id": "cust",
+      "name": "Customer"
+    },
+    {
+      "id": "ui",
+      "name": "OTPForm"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "request OTP code",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "cust",
+      "label": "display OTP input",
+      "msg_type": "return",
+      "step": "1.1"
+    },
+    {
+      "type": "message",
+      "from": "cust",
+      "to": "ui",
+      "label": "enter OTP",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "validateOTP(otp)",
+      "msg_type": "sync",
+      "step": "3"
+    },
+    {
+      "type": "alt",
+      "condition": "OTP valid",
+      "messages": [
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "verification successful",
+          "msg_type": "return",
+          "step": "4"
+        },
+        {
+          "from": "ui",
+          "to": "cust",
+          "label": "allow password reset",
+          "msg_type": "return",
+          "step": "4.1"
+        }
+      ],
+      "else_condition": "invalid/expired OTP or max attempts",
+      "else_messages": [
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "error: invalid/expired OTP",
+          "msg_type": "return",
+          "step": "EF-1"
+        },
+        {
+          "from": "ui",
+          "to": "cust",
+          "label": "show error / block attempts",
+          "msg_type": "return",
+          "step": "EF-2"
+        }
+      ]
+    }
+  ]
+}

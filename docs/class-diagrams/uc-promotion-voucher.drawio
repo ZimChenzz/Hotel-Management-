@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile>
+  <diagram name="UC - Promotion &amp; Voucher">
+    <mxGraphModel dx="1605" dy="976" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1605" pageHeight="976">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="UC - Promotion &amp; Voucher" style="text;html=1;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="0" y="5" width="1605" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="3" value="&lt;b&gt;AdminPromotionController&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- adminPromotionService: AdminPromotionService&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ adminPromotionService: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ path: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ path: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ promotions: List&amp;lt;Promotion&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ success: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ id: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ promotion: Promotion&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ return: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ typeId: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ promoCode: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ discountPercent: BigDecimal&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ startDate: LocalDate&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ endDate: LocalDate&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ result: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ id: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ typeId: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ promoCode: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ discountPercent: BigDecimal&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ startDate: LocalDate&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ endDate: LocalDate&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ success: boolean&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ id: int&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ init(): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doGet(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ switch(path): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doPost(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ switch(path): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleList(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleCreateForm(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleEditForm(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(promotion): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleCreate(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(result): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ handleCreateForm(request, response): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ handleCreateForm(request, response): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleEdit(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(success): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ handleEditForm(request, response): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ handleEditForm(request, response): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleDelete(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="323" height="612" as="geometry"/>
+        </mxCell>
+        <mxCell id="4" value="&lt;b&gt;AdminPromotionService&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- promotionRepository: PromotionRepository&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- roomTypeRepository: RoomTypeRepository&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ p: Promotion&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ existing: Promotion&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ false: return&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ false: return&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ false: return&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ true: return&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ createPromotion(int, String, BigDecimal, LocalDate, LocalDate): int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ updatePromotion(int, int, String, BigDecimal, LocalDate, LocalDate): boolean&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ deletePromotion(int): boolean&lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="423" y="80" width="364" height="192" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="&lt;b&gt;AdminVoucherController&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- adminVoucherService: AdminVoucherService&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ adminVoucherService: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ path: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ path: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ vouchers: List&amp;lt;Voucher&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ success: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ id: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ voucher: Voucher&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ return: &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ code: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ discountAmount: BigDecimal&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ minOrderValue: BigDecimal&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ isActive: boolean&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ result: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ id: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ code: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ discountAmount: BigDecimal&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ minOrderValue: BigDecimal&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ isActive: boolean&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ success: boolean&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ id: int&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ init(): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doGet(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ switch(path): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;# doPost(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ switch(path): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleList(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleCreateForm(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleEditForm(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(voucher): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleCreate(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(result): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleEdit(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ if(success): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ handleEditForm(request, response): &lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- handleDelete(HttpServletRequest, HttpServletResponse): void&lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="847" y="80" width="323" height="542" as="geometry"/>
+        </mxCell>
+        <mxCell id="6" value="&lt;b&gt;AdminVoucherService&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- voucherRepository: VoucherRepository&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ voucher: Voucher&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ voucher: Voucher&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ createVoucher(String, BigDecimal, BigDecimal, boolean): int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ updateVoucher(int, String, BigDecimal, BigDecimal, boolean): boolean&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;+ deleteVoucher(int): boolean&lt;/span&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="80" width="335" height="122" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="&lt;b&gt;Promotion&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- promotionId: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- typeId: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- promoCode: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- discountPercent: BigDecimal&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- startDate: LocalDate&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- endDate: LocalDate&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- typeName: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;~ today: LocalDate&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="40" y="772" width="149" height="164" as="geometry"/>
+        </mxCell>
+        <mxCell id="8" value="&lt;b&gt;PromotionService&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- promotionRepository: PromotionRepository&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="249" y="772" width="213" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="9" value="&lt;b&gt;Voucher&lt;/b&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- voucherId: int&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- code: String&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- discountAmount: BigDecimal&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- minOrderValue: BigDecimal&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;- isActive: boolean&lt;/span&gt;&lt;br/&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;br/&gt;" style="shape=mxgraph.basic.rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;align=center;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="523" y="772" width="149" height="122" as="geometry"/>
+        </mxCell>
+        <mxCell id="10" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="3" target="4" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="10">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="10">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" value="" style="html=1;rounded=0;startArrow=diamondThin;startFill=1;endArrow=none;startSize=12;strokeColor=#333333;" edge="1" source="3" target="7" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="13">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" value="*" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="13">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="4" target="7" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="17" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="16">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="16">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="19" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="5" target="6" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="20" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="19">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="19">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" value="" style="html=1;rounded=0;startArrow=diamondThin;startFill=1;endArrow=none;startSize=12;strokeColor=#333333;" edge="1" source="5" target="9" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="23" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="22">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24" value="*" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="22">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="25" value="" style="html=1;rounded=0;endArrow=open;endFill=0;endSize=10;strokeColor=#333333;" edge="1" source="6" target="9" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="26" value="1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="25">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="27" value="1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9;" vertex="1" connectable="0" parent="25">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

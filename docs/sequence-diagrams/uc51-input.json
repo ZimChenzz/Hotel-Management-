@@ -1,0 +1,91 @@
+{
+  "uc_id": "UC-51",
+  "title": "UC-51: Add Promotion",
+  "participants": [
+    {
+      "id": "admin",
+      "name": "Admin"
+    },
+    {
+      "id": "ui",
+      "name": "AddPromotionForm"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "admin",
+      "to": "ui",
+      "label": "enter promotion details (name, discount, dates, conditions)",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "addPromotion(promoData)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "alt",
+      "condition": "data valid & dates logical",
+      "messages": [
+        {
+          "from": "sys",
+          "to": "db",
+          "label": "savePromotion(promoData)",
+          "msg_type": "sync",
+          "step": "3"
+        },
+        {
+          "from": "db",
+          "to": "sys",
+          "label": "saved",
+          "msg_type": "return",
+          "step": "3.1"
+        },
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "promotion added",
+          "msg_type": "return",
+          "step": "4"
+        },
+        {
+          "from": "ui",
+          "to": "admin",
+          "label": "show success",
+          "msg_type": "return",
+          "step": "4.1"
+        }
+      ],
+      "else_condition": "invalid data",
+      "else_messages": [
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "error",
+          "msg_type": "return",
+          "step": "EF-1"
+        },
+        {
+          "from": "ui",
+          "to": "admin",
+          "label": "show error",
+          "msg_type": "return",
+          "step": "EF-2"
+        }
+      ]
+    }
+  ]
+}

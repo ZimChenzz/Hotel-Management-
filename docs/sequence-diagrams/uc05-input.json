@@ -1,0 +1,107 @@
+{
+  "uc_id": "UC-05",
+  "title": "UC-05: Reset Password",
+  "participants": [
+    {
+      "id": "cust",
+      "name": "Customer"
+    },
+    {
+      "id": "ui",
+      "name": "ResetPasswordForm"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "request new password & confirmation",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "cust",
+      "label": "display password form",
+      "msg_type": "return",
+      "step": "1.1"
+    },
+    {
+      "type": "message",
+      "from": "cust",
+      "to": "ui",
+      "label": "enter new password & confirm",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "validateAndResetPassword(pwd, confirm)",
+      "msg_type": "sync",
+      "step": "3"
+    },
+    {
+      "type": "alt",
+      "condition": "password valid & matches",
+      "messages": [
+        {
+          "from": "sys",
+          "to": "db",
+          "label": "updatePassword(hashedPwd)",
+          "msg_type": "sync",
+          "step": "4"
+        },
+        {
+          "from": "db",
+          "to": "sys",
+          "label": "updated",
+          "msg_type": "return",
+          "step": "4.1"
+        },
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "password reset successful",
+          "msg_type": "return",
+          "step": "5"
+        },
+        {
+          "from": "ui",
+          "to": "cust",
+          "label": "show success confirmation",
+          "msg_type": "return",
+          "step": "5.1"
+        }
+      ],
+      "else_condition": "passwords don't match or weak",
+      "else_messages": [
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "error: mismatch / weak password",
+          "msg_type": "return",
+          "step": "EF-1"
+        },
+        {
+          "from": "ui",
+          "to": "cust",
+          "label": "show error, request re-entry",
+          "msg_type": "return",
+          "step": "EF-2"
+        }
+      ]
+    }
+  ]
+}

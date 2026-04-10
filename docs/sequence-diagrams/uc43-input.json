@@ -1,0 +1,91 @@
+{
+  "uc_id": "UC-43",
+  "title": "UC-43: Add Room Type",
+  "participants": [
+    {
+      "id": "admin",
+      "name": "Admin"
+    },
+    {
+      "id": "ui",
+      "name": "AddRoomTypeForm"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "admin",
+      "to": "ui",
+      "label": "enter room type details (name, capacity, amenities, price)",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "addRoomType(typeData)",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "alt",
+      "condition": "data valid & name unique",
+      "messages": [
+        {
+          "from": "sys",
+          "to": "db",
+          "label": "saveRoomType(typeData)",
+          "msg_type": "sync",
+          "step": "3"
+        },
+        {
+          "from": "db",
+          "to": "sys",
+          "label": "saved",
+          "msg_type": "return",
+          "step": "3.1"
+        },
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "room type added",
+          "msg_type": "return",
+          "step": "4"
+        },
+        {
+          "from": "ui",
+          "to": "admin",
+          "label": "show success",
+          "msg_type": "return",
+          "step": "4.1"
+        }
+      ],
+      "else_condition": "invalid or duplicate",
+      "else_messages": [
+        {
+          "from": "sys",
+          "to": "ui",
+          "label": "error",
+          "msg_type": "return",
+          "step": "EF-1"
+        },
+        {
+          "from": "ui",
+          "to": "admin",
+          "label": "show error",
+          "msg_type": "return",
+          "step": "EF-2"
+        }
+      ]
+    }
+  ]
+}

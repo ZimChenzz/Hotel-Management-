@@ -1,0 +1,80 @@
+{
+  "uc_id": "UC-21",
+  "title": "UC-21: Submit Service Request",
+  "participants": [
+    {
+      "id": "cust",
+      "name": "Customer"
+    },
+    {
+      "id": "ui",
+      "name": "ServiceRequestForm"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "cust",
+      "to": "ui",
+      "label": "select service type",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "cust",
+      "to": "ui",
+      "label": "provide details & submit",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "createServiceRequest(bookingId, type, details)",
+      "msg_type": "sync",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "saveServiceRequest(status=Pending)",
+      "msg_type": "sync",
+      "step": "4"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "saved",
+      "msg_type": "return",
+      "step": "4.1"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "request submitted",
+      "msg_type": "return",
+      "step": "5"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "cust",
+      "label": "show confirmation & tracking ID",
+      "msg_type": "return",
+      "step": "6"
+    }
+  ]
+}

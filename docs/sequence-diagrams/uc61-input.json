@@ -1,0 +1,104 @@
+{
+  "uc_id": "UC-61",
+  "title": "UC-61: View Admin Dashboard",
+  "participants": [
+    {
+      "id": "admin",
+      "name": "Admin"
+    },
+    {
+      "id": "ui",
+      "name": "AdminDashboard"
+    },
+    {
+      "id": "sys",
+      "name": "System"
+    },
+    {
+      "id": "db",
+      "name": "Database"
+    }
+  ],
+  "elements": [
+    {
+      "type": "message",
+      "from": "admin",
+      "to": "ui",
+      "label": "navigate to dashboard",
+      "msg_type": "sync",
+      "step": "1"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "sys",
+      "label": "getDashboardData()",
+      "msg_type": "sync",
+      "step": "2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "queryRevenueStats()",
+      "msg_type": "sync",
+      "step": "2.1"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "revenue data",
+      "msg_type": "return",
+      "step": "2.2"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "queryOccupancyStats()",
+      "msg_type": "sync",
+      "step": "2.3"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "occupancy data",
+      "msg_type": "return",
+      "step": "2.4"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "db",
+      "label": "queryRecentBookings()",
+      "msg_type": "sync",
+      "step": "2.5"
+    },
+    {
+      "type": "message",
+      "from": "db",
+      "to": "sys",
+      "label": "recent bookings",
+      "msg_type": "return",
+      "step": "2.6"
+    },
+    {
+      "type": "message",
+      "from": "sys",
+      "to": "ui",
+      "label": "dashboard summary data",
+      "msg_type": "return",
+      "step": "3"
+    },
+    {
+      "type": "message",
+      "from": "ui",
+      "to": "admin",
+      "label": "display KPIs, charts, recent activity",
+      "msg_type": "return",
+      "step": "4"
+    }
+  ]
+}
